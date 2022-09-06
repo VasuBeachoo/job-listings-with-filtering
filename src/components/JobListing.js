@@ -1,30 +1,64 @@
 import styled from "styled-components";
 import JobCategory from "./JobCategory";
 
-export const CategoriesBox = styled.div``;
+export const CategoriesBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+`;
 
 export const InfoDivider = styled.div``;
 
 export const InfoText = styled.p``;
 
-export const InfoFooterBox = styled.div``;
+export const InfoFooterBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
 
 export const JobPosition = styled.h2``;
 
 export const CompanyName = styled.h3``;
 
-export const InfoHeaderBox = styled.div``;
+export const InfoHeaderBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`;
 
-export const InfoBox = styled.div``;
+export const InfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+`;
 
 export const Logo = styled.img``;
 
-export const LogoBox = styled.div``;
+export const LogoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
-export const ListingBox = styled.div``;
+export const ListingBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+`;
 
 const JobListing = ({ className, data }) => {
-  const categories = [...data.languages, ...data.tools];
+  const categories = [data.role, data.level, ...data.languages, ...data.tools];
   let categoryId = 1000;
 
   return (

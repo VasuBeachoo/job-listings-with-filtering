@@ -12,7 +12,22 @@ import logoInsure from "./assets/insure.svg";
 import logoEyecamCo from "./assets/eyecam-co.svg";
 import logoTheAirFilterCompany from "./assets/the-air-filter-company.svg";
 
-const AppBox = styled.div``;
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+`;
+
+const AppBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+`;
 
 const App = () => {
   const jobListings = [
@@ -170,8 +185,10 @@ const App = () => {
 
   return (
     <AppBox>
-      <FilterBar />
-      <JobList jobListings={jobListings} />
+      <Box>
+        <FilterBar />
+        <JobList jobListings={jobListings} />
+      </Box>
     </AppBox>
   );
 };
