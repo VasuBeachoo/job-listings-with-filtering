@@ -6,7 +6,12 @@ export const ListBox = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: 1.5rem;
   width: 100%;
+
+  @media (max-width: 900px) {
+    gap: 4.5rem;
+  }
 `;
 
 const JobList = ({ className, jobListings }) => {

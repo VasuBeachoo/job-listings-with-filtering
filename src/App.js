@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import GlobalStyle from "./GlobalStyle";
 import FilterBar from "./components/FilterBar";
 import JobList from "./components/JobList";
+import bgHeaderDesktop from "./assets/bg-header-desktop.svg";
 import logoPhotosnap from "./assets/photosnap.svg";
 import logoManage from "./assets/manage.svg";
 import logoAccount from "./assets/account.svg";
@@ -17,7 +19,13 @@ const Box = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  gap: 2rem;
   width: 80%;
+  margin: 8rem 2rem 4rem;
+
+  @media (max-width: 900px) {
+    gap: 5rem;
+  }
 `;
 
 const AppBox = styled.div`
@@ -27,6 +35,8 @@ const AppBox = styled.div`
   align-items: center;
   width: 100%;
   min-height: 100vh;
+  background: url(${bgHeaderDesktop}) var(--Light-Grayish-Cyan-Bg);
+  background-repeat: no-repeat;
 `;
 
 const App = () => {
@@ -185,6 +195,7 @@ const App = () => {
 
   return (
     <AppBox>
+      <GlobalStyle />
       <Box>
         <FilterBar />
         <JobList jobListings={jobListings} />
