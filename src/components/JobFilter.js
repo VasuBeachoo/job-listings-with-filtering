@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { removeFilter } from "../jobFilterSlice";
 import styled from "styled-components";
 import JobCategory from "./JobCategory";
 import iconRemove from "../assets/icon-remove.svg";
@@ -38,10 +40,12 @@ export const FilterBox = styled.div`
 `;
 
 const JobFilter = ({ className, text }) => {
+  const dispatch = useDispatch();
+
   return (
     <FilterBox className={className}>
       <FilterCategory text={text} />
-      <RemoveFilterBox>
+      <RemoveFilterBox onClick={() => dispatch(removeFilter(text))}>
         <RemoveFilterIcon />
       </RemoveFilterBox>
     </FilterBox>

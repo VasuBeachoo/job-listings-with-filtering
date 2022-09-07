@@ -20,9 +20,9 @@ export const CategoryBox = styled.div`
   transition: 0.25s;
 `;
 
-const JobCategory = ({ className, text }) => {
+const JobCategory = ({ className, text, onClick }) => {
   return (
-    <CategoryBox className={className}>
+    <CategoryBox className={className} onClick={onClick}>
       <CategoryText>{text}</CategoryText>
     </CategoryBox>
   );

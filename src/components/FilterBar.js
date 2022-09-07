@@ -1,3 +1,5 @@
+import { useSelector, useDispatch } from "react-redux";
+import { clearFilters } from "../jobFilterSlice";
 import styled from "styled-components";
 import JobFilter from "./JobFilter";
 
@@ -36,17 +38,25 @@ export const FilterBarBox = styled.div`
   width: 100%;
   background-color: var(--White);
   border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   padding: 2rem;
 `;
 
 const FilterBar = ({ className }) => {
+  const dispatch = useDispatch();
+
+  const filters = useSelector((state) => state.jobFilter.filters);
+
   return (
     <FilterBarBox className={className}>
       <FiltersBox>
-        <JobFilter text="Test 1" />
-        <JobFilter text="Test 2" />
+        {filters.map((filter, index) => (
+          <JobFilter key={index} text={filter} />
+        ))}
       </FiltersBox>
-      <ClearFiltersBtn>Clear</ClearFiltersBtn>
+      <ClearFiltersBtn onClick={() => dispatch(clearFilters())}>
+        Clear
+      </ClearFiltersBtn>
     </FilterBarBox>
   );
 };

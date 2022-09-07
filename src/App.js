@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import GlobalStyle from "./GlobalStyle";
 import FilterBar from "./components/FilterBar";
@@ -23,7 +24,7 @@ const Box = styled.div`
   width: 80%;
   margin: 8rem 2rem 4rem;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1200px) {
     gap: 5rem;
   }
 `;
@@ -193,11 +194,13 @@ const App = () => {
     },
   ];
 
+  const filters = useSelector((state) => state.jobFilter.filters);
+
   return (
     <AppBox>
       <GlobalStyle />
       <Box>
-        <FilterBar />
+        {filters.length !== 0 && <FilterBar />}
         <JobList jobListings={jobListings} />
       </Box>
     </AppBox>
