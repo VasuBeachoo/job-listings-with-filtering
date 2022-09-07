@@ -1,6 +1,17 @@
 import styled from "styled-components";
 import { NewTag, FeaturedTag } from "./ListingTag";
-import JobCategory from "./JobCategory";
+import JobCategory, { CategoryText } from "./JobCategory";
+
+export const ListingCategory = styled(JobCategory)`
+  &:hover {
+    cursor: pointer;
+    background-color: var(--Desaturated-Dark-Cyan);
+
+    ${CategoryText} {
+      color: var(--White);
+    }
+  }
+`;
 
 export const CategoriesBox = styled.div`
   display: flex;
@@ -60,7 +71,7 @@ export const JobPosition = styled.h2`
   font-weight: 700;
   line-height: 1.75ch;
   margin: 0;
-  transition: 0.2s;
+  transition: 0.175s;
 
   &:hover {
     cursor: pointer;
@@ -154,7 +165,7 @@ const JobListing = ({ className, data }) => {
       <CategoriesDivider />
       <CategoriesBox>
         {categories.map((category) => (
-          <JobCategory key={categoryId++} text={category} />
+          <ListingCategory key={categoryId++} text={category} />
         ))}
       </CategoriesBox>
     </ListingBox>

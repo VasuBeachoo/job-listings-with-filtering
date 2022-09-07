@@ -19,6 +19,7 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   body {
+    background-color: var(--Light-Grayish-Cyan-Bg);
     margin: 0;
   }
 `;
