@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addFilter } from "../jobFilterSlice";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { NewTag, FeaturedTag } from "./ListingTag";
 import JobCategory, { CategoryText } from "./JobCategory";
 
@@ -150,6 +150,11 @@ export const ListingBox = styled.div`
   width: 100%;
   background-color: var(--White);
   border-radius: 0.5rem;
+  ${(props) =>
+    props.data.featured &&
+    css`
+      border-left: 0.4rem solid var(--Desaturated-Dark-Cyan);
+    `};
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   padding: 2rem;
 
@@ -172,7 +177,7 @@ const JobListing = ({ className, data }) => {
   let categoryId = 1000;
 
   return (
-    <ListingBox className={className}>
+    <ListingBox className={className} data={data}>
       <LogoBox>
         <Logo src={data.logo} alt="company-logo" />
       </LogoBox>

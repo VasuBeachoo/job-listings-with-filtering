@@ -22,11 +22,20 @@ const Box = styled.div`
   align-items: center;
   gap: 2rem;
   width: 80%;
-  margin: 8rem 2rem 4rem;
+  margin: 6.5rem 2rem 4rem;
+  z-index: 2;
 
   @media (max-width: 1200px) {
     gap: 5rem;
   }
+`;
+
+const BgBox = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 9.65rem;
+  background: url(${bgHeaderDesktop}) var(--Desaturated-Dark-Cyan);
+  background-repeat: repeat-x;
 `;
 
 const AppBox = styled.div`
@@ -36,8 +45,7 @@ const AppBox = styled.div`
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: url(${bgHeaderDesktop}) var(--Light-Grayish-Cyan-Bg);
-  background-repeat: no-repeat;
+  background: var(--Light-Grayish-Cyan-Bg);
 `;
 
 const App = () => {
@@ -199,6 +207,7 @@ const App = () => {
   return (
     <AppBox>
       <GlobalStyle />
+      <BgBox></BgBox>
       <Box>
         {filters.length !== 0 && <FilterBar />}
         <JobList jobListings={jobListings} />
