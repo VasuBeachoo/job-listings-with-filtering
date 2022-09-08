@@ -22,9 +22,9 @@ Users should be able to:
 
 ### Screenshots
 
-![](./public/screenshot-2.png)
+![](./public/screenshot2.png)
 
-![](./public/screenshot-1.png)
+![](./public/screenshot1.png)
 
 ### Links
 
